@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 import 'dart:ui';
+
+import 'package:flutter/material.dart';
 
 void main() => runApp(new HomeFragment());
 
@@ -12,6 +13,7 @@ class HomeFragment extends StatefulWidget {
 
 class _HomeFragmentState extends State<StatefulWidget> {
   bool isVisible = false;
+
   @override
   void initState() {
     super.initState();
@@ -19,11 +21,12 @@ class _HomeFragmentState extends State<StatefulWidget> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return new MaterialApp(
+    /* TODO: implement build*/ return new MaterialApp(
       theme: ThemeData(primaryColor: Color.fromARGB(255, 251, 114, 153)),
       home: Scaffold(
         appBar: AppBar(
+          elevation: 0.0,
+          /*阴影*/
           title: Row(
             children: <Widget>[
               ClipOval(
@@ -34,7 +37,8 @@ class _HomeFragmentState extends State<StatefulWidget> {
                 ),
               ),
               Container(
-                alignment: Alignment.centerLeft, //  左对齐
+                alignment: Alignment.centerLeft,
+                /*  左对齐*/
                 padding: EdgeInsets.only(left: 4.0),
                 margin: EdgeInsets.only(left: 10.0),
                 width: 180.0,
@@ -77,9 +81,10 @@ class _HomeFragmentState extends State<StatefulWidget> {
             Container(
               alignment: Alignment.center,
               padding: EdgeInsets.only(top: 13.0),
-              color:Colors.white,
+              color: Colors.white,
               height: 60.0,
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Column(
@@ -87,7 +92,7 @@ class _HomeFragmentState extends State<StatefulWidget> {
                       Text('直播'),
                       Container(
                         height: 1,
-                        margin: EdgeInsets.only(top: 10.0),
+                        margin: EdgeInsets.only(top: 5.0),
                         width: 30.0,
                         color: Colors.redAccent,
                       ),
@@ -98,8 +103,9 @@ class _HomeFragmentState extends State<StatefulWidget> {
                       Text('推荐'),
                       Container(
                         height: 1,
+                        margin: EdgeInsets.only(top: 5.0),
                         width: 30.0,
-                        color: isVisible?Colors.redAccent:Colors.white,
+                        color: isVisible ? Colors.redAccent : Colors.white,
                       ),
                     ],
                   ),
@@ -108,8 +114,9 @@ class _HomeFragmentState extends State<StatefulWidget> {
                       Text('追番'),
                       Container(
                         height: 1,
+                        margin: EdgeInsets.only(top: 5.0),
                         width: 30.0,
-                        color: isVisible?Colors.redAccent:Colors.white,
+                        color: isVisible ? Colors.redAccent : Colors.white,
                       ),
                     ],
                   ),
@@ -118,8 +125,9 @@ class _HomeFragmentState extends State<StatefulWidget> {
                       Text('国家宝藏'),
                       Container(
                         height: 1,
+                        margin: EdgeInsets.only(top: 5.0),
                         width: 30.0,
-                        color: isVisible?Colors.redAccent:Colors.white,
+                        color: isVisible ? Colors.redAccent : Colors.white,
                       ),
                     ],
                   ),
@@ -128,14 +136,112 @@ class _HomeFragmentState extends State<StatefulWidget> {
                       Text('故事王'),
                       Container(
                         height: 1,
+                        margin: EdgeInsets.only(top: 5.0),
                         width: 30.0,
-                        color: isVisible?Colors.redAccent:Colors.white,
+                        color: isVisible ? Colors.redAccent : Colors.white,
                       ),
                     ],
                   ),
                 ],
               ),
             ),
+            /*轮播*/
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(6.0)),
+                child: Image.asset(
+                  "images/01.jpg",
+                  fit: BoxFit.cover,
+                  height: 120.0,
+                ),
+              ),
+            ),
+            /*            //列表 ListView.builder( itemBuilder: (context, index) { return; }, itemCount: 5, ),*/
+            Container(
+              height: 1.0,
+              color: Colors.black12,
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 10.0, bottom: 10.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                /*将主轴空白区域均分，使各个子控件间距相等*/
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.only(left: 10, right: 10),
+                    child: Text("我的关注"),
+                  ),
+                  Text(
+                    "16小时之前",
+                    style: TextStyle(color: Colors.black26),
+                  ),
+                  Text("宁采臣丶在唱歌"),
+                  Text(
+                    "直播了唱见电台",
+                    style: TextStyle(color: Colors.black26),
+                  ),
+                  Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.black26,
+                    size: 15,
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              height: 1.0,
+              color: Colors.black12,
+            ),
+            //----文字
+            Container(
+              padding: EdgeInsets.only(left: 10, right: 10),
+              height: 50.0,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text("推荐直播"),
+                  Row(
+                    children: <Widget>[
+                      Text(
+                        "换一换",
+                        style: TextStyle(color: Colors.black26),
+                      ),
+                      Icon(
+                        Icons.refresh,
+                        color: Colors.black26,
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+            //---视频区
+            SizedBox(
+              height: 100.0,
+              child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2),
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.all(10.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.all(Radius.circular(6.0)),
+                          child: Image.asset(
+                            "image/01.jpg",
+                            fit: BoxFit.cover,
+                            height: 80.0,
+                          ),
+                        ),
+                      )
+                    ],
+                  );
+                },
+                itemCount: 12,
+              ),
+            )
           ],
         ),
       ),
