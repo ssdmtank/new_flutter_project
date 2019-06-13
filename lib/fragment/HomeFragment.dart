@@ -218,7 +218,7 @@ class _HomeFragmentState extends State<StatefulWidget> {
             ),
             //---视频区
             SizedBox(
-              height: 100.0,
+              height: 360.0,
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2),
@@ -230,9 +230,9 @@ class _HomeFragmentState extends State<StatefulWidget> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.all(Radius.circular(6.0)),
                           child: Image.asset(
-                            "image/01.jpg",
+                            "images/01.jpg",
                             fit: BoxFit.cover,
-                            height: 80.0,
+                            height: 120.0,
                           ),
                         ),
                       )
@@ -241,7 +241,7 @@ class _HomeFragmentState extends State<StatefulWidget> {
                 },
                 itemCount: 12,
               ),
-            )
+            ),
           ],
         ),
       ),
