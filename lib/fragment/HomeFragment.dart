@@ -218,28 +218,43 @@ class _HomeFragmentState extends State<StatefulWidget> {
             ),
             //---视频区
             SizedBox(
-              height: 360.0,
+              height: 450.0,
               child: GridView.builder(
+                physics: NeverScrollableScrollPhysics(),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2),
+                    crossAxisCount: 2, childAspectRatio: 1.4),
                 itemBuilder: (context, index) {
-                  return Column(
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.all(10.0),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.all(Radius.circular(6.0)),
-                          child: Image.asset(
-                            "images/01.jpg",
-                            fit: BoxFit.cover,
-                            height: 120.0,
+                  return Padding(
+                    padding: EdgeInsets.only(left: 15.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.all(3.0),
+                          child: ClipRRect(
+                            borderRadius:
+                            BorderRadius.all(Radius.circular(6.0)),
+                            child: Image.asset(
+                              "images/01.jpg",
+                              fit: BoxFit.cover,
+                              width: 190.0,
+                              height: 80.0,
+                            ),
                           ),
                         ),
-                      )
-                    ],
+                        Text(
+                          "真香",
+                        ),
+                        Text(
+                          "绝地求生",
+                          style: TextStyle(color: Colors.black26),
+                          textAlign: TextAlign.left,
+                        )
+                      ],
+                    ),
                   );
                 },
-                itemCount: 12,
+                itemCount: 6,
               ),
             ),
           ],
