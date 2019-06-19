@@ -30,9 +30,8 @@ class _MyHomePageState extends State<MyHomePage>{
       //顶部bar
       appBar: AppBar(
         leading: Icon(Icons.add),
-        title: Text('hello1'),
+        title: Text('hello2'),
       ),
-      body: new Text('hello1'),
+      body: new Text('hello2'),
     );
   }
-}

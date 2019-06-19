@@ -40,14 +40,13 @@ class _HomeFragmentState extends State<StatefulWidget> {
                     ),
                   ),
                   Container(
-                      width: 6.0,
-                      height: 6.0,
+                      width: 8.0,
+                      height: 8.0,
                       decoration: BoxDecoration(
                         color: Colors.redAccent,
                         shape: BoxShape.circle,
                         border: Border.all(color: Colors.white, width: 1),
-                      )
-                  ),
+                      )),
                 ],
               ),
               Container(
@@ -161,16 +160,20 @@ class _HomeFragmentState extends State<StatefulWidget> {
             ),
             /*轮播*/
             Padding(
-              padding: EdgeInsets.all(10.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(6.0)),
-                child: Image.asset(
-                  "images/01.jpg",
-                  fit: BoxFit.cover,
-                  height: 120.0,
-                ),
-              ),
-            ),
+                padding: EdgeInsets.all(10.0),
+                child: Stack(
+                  alignment: Alignment.bottomCenter,
+                  children: <Widget>[
+                    ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(6.0)),
+                      child: Image.asset(
+                        "images/01.jpg",
+                        fit: BoxFit.cover,
+                        height: 120.0,
+                      ),
+                    ),
+                  ],
+                )),
             /*            //列表 ListView.builder( itemBuilder: (context, index) { return; }, itemCount: 5, ),*/
             Container(
               height: 1.0,
@@ -247,7 +250,7 @@ class _HomeFragmentState extends State<StatefulWidget> {
                           padding: EdgeInsets.all(3.0),
                           child: ClipRRect(
                             borderRadius:
-                            BorderRadius.all(Radius.circular(6.0)),
+                                BorderRadius.all(Radius.circular(6.0)),
                             child: Image.asset(
                               "images/01.jpg",
                               fit: BoxFit.cover,
