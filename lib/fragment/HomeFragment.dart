@@ -29,12 +29,26 @@ class _HomeFragmentState extends State<StatefulWidget> {
           /*阴影*/
           title: Row(
             children: <Widget>[
-              ClipOval(
-                child: Image.asset(
-                  "images/01.jpg",
-                  width: 30.0,
-                  height: 30.0,
-                ),
+              Stack(
+                alignment: Alignment(1.8, -1.5),
+                children: <Widget>[
+                  ClipOval(
+                    child: Image.asset(
+                      "images/01.jpg",
+                      width: 30.0,
+                      height: 30.0,
+                    ),
+                  ),
+                  Container(
+                      width: 6.0,
+                      height: 6.0,
+                      decoration: BoxDecoration(
+                        color: Colors.redAccent,
+                        shape: BoxShape.circle,
+                        border: Border.all(color: Colors.white, width: 1),
+                      )
+                  ),
+                ],
               ),
               Container(
                 alignment: Alignment.centerLeft,
