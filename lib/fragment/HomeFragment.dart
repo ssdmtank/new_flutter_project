@@ -160,20 +160,17 @@ class _HomeFragmentState extends State<StatefulWidget> {
             ),
             /*轮播*/
             Padding(
-                padding: EdgeInsets.all(10.0),
-                child: Stack(
-                  alignment: Alignment.bottomCenter,
-                  children: <Widget>[
-                    ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0)),
-                      child: Image.asset(
-                        "images/01.jpg",
-                        fit: BoxFit.cover,
-                        height: 120.0,
-                      ),
-                    ),
-                  ],
-                )),
+              padding: EdgeInsets.all(10.0),
+              child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(6.0)),
+                child: Image.asset(
+                  "images/01.jpg",
+                  fit: BoxFit.cover,
+                  height: 120.0,
+                  width: 350.0,
+                ),
+              ),
+            ),
             /*            //列表 ListView.builder( itemBuilder: (context, index) { return; }, itemCount: 5, ),*/
             Container(
               height: 1.0,
@@ -248,15 +245,45 @@ class _HomeFragmentState extends State<StatefulWidget> {
                       children: <Widget>[
                         Padding(
                           padding: EdgeInsets.all(3.0),
-                          child: ClipRRect(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(6.0)),
-                            child: Image.asset(
-                              "images/01.jpg",
-                              fit: BoxFit.cover,
-                              width: 190.0,
-                              height: 80.0,
-                            ),
+                          child: Stack(
+                            alignment: Alignment.bottomCenter,
+                            children: <Widget>[
+                              ClipRRect(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(6.0)),
+                                child: Image.asset(
+                                  "images/01.jpg",
+                                  fit: BoxFit.cover,
+                                  width: 190.0,
+                                  height: 90.0,
+                                ),
+                              ),
+                              Container(
+                                padding: EdgeInsets.symmetric(horizontal: 10.0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Text(
+                                      "陈哥",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Icon(
+                                          Icons.supervisor_account,
+                                          color: Colors.white,
+                                        ),
+                                        Text(
+                                          "8.5万人",
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                         Text(
