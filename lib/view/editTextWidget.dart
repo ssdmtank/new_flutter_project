@@ -16,6 +16,8 @@ class _HomeFragmentState extends State<StatefulWidget> {
 
   var editerTextController = TextEditingController();
 
+  var mTextFieldController = TextEditingController();
+
   @override
   void initState() {
     super.initState();
@@ -96,35 +98,39 @@ class _HomeFragmentState extends State<StatefulWidget> {
             //输入框
             Container(
               margin: EdgeInsets.all(20.0),
-              padding: EdgeInsets.only(left: 20.0),
+              padding: EdgeInsets.only(left: 10.0),
               alignment: Alignment.center,
               height: 40.0,
               width: 200.0,
               child: Row(
-                //mainAxisAlignment: MainAxisAlignment.start, //左对齐
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Icon(Icons.access_alarm),
-                  Container(
-                    padding: EdgeInsets.only(left: 5.0),
-                    alignment: Alignment.center,
-                    height: 36.0,
-                    width: 200.0,
-                    child: EditableText(
-                      controller: editerTextController,
-                      focusNode: FocusNode(),
-                      style: TextStyle(color: Colors.red),
-                      cursorColor: Colors.blue,
-                      backgroundCursorColor: Colors.grey,
-                      textDirection: TextDirection.ltr,
-                      cursorWidth: 4.0,
-                      cursorRadius: Radius.circular(11.0),
-                      onChanged: (result) {
-                        //print(result);
-                      },
-                      //textInputAction: TextInputAction.emergencyCall,
-                    ),
+                  Row(
+                    children: <Widget>[
+                      Icon(Icons.access_alarm),
+                      Container(
+                        padding: EdgeInsets.only(left: 5.0, right: 5.0),
+                        alignment: Alignment.center,
+                        height: 36.0,
+                        width: 200.0,
+                        child: EditableText(
+                          controller: editerTextController,
+                          focusNode: FocusNode(),
+                          style: TextStyle(color: Colors.red),
+                          cursorColor: Colors.blue,
+                          backgroundCursorColor: Colors.black,
+                          textDirection: TextDirection.ltr,
+                          cursorWidth: 4.0,
+                          cursorRadius: Radius.circular(11.0),
+                          onChanged: (result) {
+//                            print(result);
+                          },
+//                          textInputAction: TextInputAction.emergencyCall,
+                        ),
+                      ),
+                    ],
                   ),
-                  Icon(Icons.access_alarm),
+                  Icon(Icons.phone),
                 ],
               ),
               decoration: BoxDecoration(
@@ -132,7 +138,44 @@ class _HomeFragmentState extends State<StatefulWidget> {
                 border: Border.all(color: Colors.blue, width: 2.0),
                 borderRadius: BorderRadius.all(Radius.circular(20.0)),
               ),
-            )
+            ),
+           /* TextField(
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.all(10.0),
+                icon: Icon(Icons.text_fields),
+                labelText: '请输入你的姓名',
+                helperText: '请输入你的真实姓名',
+              ),
+              autofocus: false,
+            ),*/
+            //TODO  TextField
+            Container(
+              width: 200,
+              margin: EdgeInsets.all(20.0),
+//              height: 80.0,
+              child: TextField(
+                controller: mTextFieldController,
+                focusNode: FocusNode(),
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(5.0),
+//                  icon: Icon(
+//                    Icons.perm_contact_calendar,
+//                    color: Colors.green,
+//                  ),
+                  labelText: '请输入你的姓名',
+                  labelStyle: TextStyle(color: Colors.blue),
+                  helperText: '请输入你的真实姓名',
+                  suffixIcon: Icon(Icons.print),
+                  prefixIcon: Icon(Icons.archive),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                ),
+                autofocus: false,
+              ),
+            ),
+            TextFormField(
+
+            ),
           ],
         ),
       ),
