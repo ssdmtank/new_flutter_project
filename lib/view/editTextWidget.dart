@@ -23,7 +23,7 @@ class _HomeFragmentState extends State<StatefulWidget> {
 
   @override
   Widget build(BuildContext context) {
-    /* TODO: implement build*/ return new MaterialApp(
+    return new MaterialApp(
       theme: ThemeData(primaryColor: Color.fromARGB(255, 251, 114, 153)),
       home: Scaffold(
         appBar: AppBar(
@@ -101,7 +101,7 @@ class _HomeFragmentState extends State<StatefulWidget> {
               height: 40.0,
               width: 200.0,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.start, //左对齐
+                //mainAxisAlignment: MainAxisAlignment.start, //左对齐
                 children: <Widget>[
                   Icon(Icons.access_alarm),
                   Container(
@@ -114,12 +114,23 @@ class _HomeFragmentState extends State<StatefulWidget> {
                       focusNode: FocusNode(),
                       style: TextStyle(color: Colors.red),
                       cursorColor: Colors.blue,
+                      backgroundCursorColor: Colors.grey,
+                      textDirection: TextDirection.ltr,
+                      cursorWidth: 4.0,
+                      cursorRadius: Radius.circular(11.0),
                       onChanged: (result) {
-                        print(result);
+                        //print(result);
                       },
+                      //textInputAction: TextInputAction.emergencyCall,
                     ),
-                  )
+                  ),
+                  Icon(Icons.access_alarm),
                 ],
+              ),
+              decoration: BoxDecoration(
+                color: Colors.white12, //背景色
+                border: Border.all(color: Colors.blue, width: 2.0),
+                borderRadius: BorderRadius.all(Radius.circular(20.0)),
               ),
             )
           ],
