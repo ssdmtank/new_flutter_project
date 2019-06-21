@@ -94,14 +94,33 @@ class _HomeFragmentState extends State<StatefulWidget> {
         body: new ListView(
           children: <Widget>[
             //输入框
-            EditableText(
-              controller: editerTextController,
-              focusNode: FocusNode(),
-              style: TextStyle(color: Colors.red),
-              cursorColor: Colors.blue,
-              onChanged: (result) {
-                print(result);
-              },
+            Container(
+              margin: EdgeInsets.all(20.0),
+              padding: EdgeInsets.only(left: 20.0),
+              alignment: Alignment.center,
+              height: 40.0,
+              width: 200.0,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start, //左对齐
+                children: <Widget>[
+                  Icon(Icons.access_alarm),
+                  Container(
+                    padding: EdgeInsets.only(left: 5.0),
+                    alignment: Alignment.center,
+                    height: 36.0,
+                    width: 200.0,
+                    child: EditableText(
+                      controller: editerTextController,
+                      focusNode: FocusNode(),
+                      style: TextStyle(color: Colors.red),
+                      cursorColor: Colors.blue,
+                      onChanged: (result) {
+                        print(result);
+                      },
+                    ),
+                  )
+                ],
+              ),
             )
           ],
         ),
