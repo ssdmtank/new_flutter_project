@@ -153,7 +153,6 @@ class _HomeFragmentState extends State<StatefulWidget> {
             Container(
               width: 200,
               margin: EdgeInsets.all(20.0),
-//              height: 80.0,
               child: TextField(
                 controller: mTextFieldController,
                 focusNode: FocusNode(),
@@ -163,6 +162,7 @@ class _HomeFragmentState extends State<StatefulWidget> {
 //                    Icons.perm_contact_calendar,
 //                    color: Colors.green,
 //                  ),
+
                   labelText: '请输入你的姓名',
                   labelStyle: TextStyle(color: Colors.blue),
                   helperText: '请输入你的真实姓名',
