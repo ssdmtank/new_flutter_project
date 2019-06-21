@@ -23,7 +23,7 @@ class MyHomePage extends StatefulWidget{
   _MyHomePageState createState() => new _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage>{
+class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,3 +35,4 @@ class _MyHomePageState extends State<MyHomePage>{
       body: new Text('hello2'),
     );
   }
+}
