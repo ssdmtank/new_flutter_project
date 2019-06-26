@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:new_flutter_project/view/home/HomeFragmentAppBar.dart';
+import 'package:new_flutter_project/view/home/HomeTabBar.dart';
 
 void main() => runApp(new HomeFragment());
 
@@ -17,6 +19,12 @@ class _HomeFragmentState extends State<StatefulWidget>
 
   var _controller;
 
+  _getMessage(){
+    setState(() {
+
+    });
+  }
+
   @override
   void initState() {
     super.initState();
@@ -28,88 +36,10 @@ class _HomeFragmentState extends State<StatefulWidget>
       return new MaterialApp(
       theme: ThemeData(primaryColor: Color.fromARGB(255, 251, 114, 153)),
       home: Scaffold(
-          appBar: AppBar(
-            elevation: 0.0,
-            /*阴影*/
-            title: Row(
-              children: <Widget>[
-                Stack(
-                  alignment: Alignment(1.8, -1.5),
-                  children: <Widget>[
-                    ClipOval(
-                      child: Image.asset(
-                        "images/01.jpg",
-                        width: 30.0,
-                        height: 30.0,
-                      ),
-                    ),
-                    Container(
-                        width: 8.0,
-                        height: 8.0,
-                        decoration: BoxDecoration(
-                          color: Colors.redAccent,
-                          shape: BoxShape.circle,
-                          border: Border.all(color: Colors.white, width: 1),
-                        )),
-                  ],
-                ),
-                Container(
-                  alignment: Alignment.centerLeft,
-                  /*  左对齐*/
-                  padding: EdgeInsets.only(left: 4.0),
-                  margin: EdgeInsets.only(left: 10.0),
-                  width: 180.0,
-                  height: 30.0,
-                  child: Icon(
-                    Icons.search,
-                    color: Colors.white,
-                  ),
-                  decoration: BoxDecoration(
-                      color: Colors.black26,
-                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 25.0),
-                  child: Icon(
-                    Icons.videogame_asset,
-                    color: Colors.white,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 25.0),
-                  child: Icon(
-                    Icons.cloud_download,
-                    color: Colors.white,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 25.0),
-                  child: Icon(
-                    Icons.message,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
-            ),
-            centerTitle: true,
-          ),
+          appBar: HomeFragmentAppBar(_getMessage()),
           body: Column(
             children: <Widget>[
-              Container(
-                height: 53.0,
-                child: TabBar(
-                  indicatorColor: Colors.red,
-                  indicatorSize: TabBarIndicatorSize.label,
-                  tabs: <Widget>[
-                    Text("直播"),
-                    Text("推荐"),
-                    Text("追番"),
-                    Text("国家"),
-                    Text("故事"),
-                  ],
-                  controller: _controller,
-                ),
-              ),
+              HomeTabBar(_controller),
               Container(height: 1,color: Colors.black12,width: 400.0,),
               Expanded(
                 child: TabBarView(children: <Widget>[
